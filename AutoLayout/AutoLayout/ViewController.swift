@@ -29,70 +29,87 @@ class ViewController: UIViewController {
         super.viewDidLoad()
        view.addSubview(view1)
         view.addSubview(view2)
-        creatView1Constrant()
-         creatView2Constrant()
+//        creatView1Constrant()
+//         creatView2Constrant()
+        let viewVFL = ["viewRed": view1, "viewGreen": view2]
+        let metrics = ["height": 100, "width": view.bounds.size.width / 3, "top": view.bounds.size.height / 3]
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-top-[viewRed(height)]|",
+                                                           options: [],
+                                                           metrics: metrics,
+                                                           views: viewVFL))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-top-[viewGreen(height)]|",
+                                                           options: [],
+                                                           metrics: metrics,
+                                                           views: viewVFL))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[viewRed(width)]-(50)-[viewGreen(width)]-|",
+                                                           options: [],
+                                                           metrics: metrics,
+                                                           views: viewVFL))
+        
+        
     }
 
-    func creatView1Constrant() {
-        NSLayoutConstraint(item: view1,
-                           attribute: .centerX,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .centerX,
-                           multiplier: 1,
-                           constant: 0).isActive = true
-        NSLayoutConstraint(item: view1,
-                           attribute: .centerY,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .centerY,
-                           multiplier: 1,
-                           constant: 0).isActive = true
-        NSLayoutConstraint(item: view1,
-                           attribute: .width,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 140).isActive = true
-        NSLayoutConstraint(item: view1,
-                           attribute: .height,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 140).isActive = true
-    }
-    func creatView2Constrant() {
-        NSLayoutConstraint(item: view2,
-                           attribute: .centerX,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .centerX,
-                           multiplier: 1,
-                           constant: 0).isActive = true
-        NSLayoutConstraint(item: view2,
-                           attribute: .bottom,
-                           relatedBy: .equal,
-                           toItem: view1,
-                           attribute: .top,
-                           multiplier: 1,
-                           constant: -30).isActive = true
-        NSLayoutConstraint(item: view2,
-                           attribute: .width,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 100).isActive = true
-        NSLayoutConstraint(item: view2,
-                           attribute: .height,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 100).isActive = true
-    }
+    
+//    func creatView1Constrant() {
+//        NSLayoutConstraint(item: view1,
+//                           attribute: .centerX,
+//                           relatedBy: .equal,
+//                           toItem: view,
+//                           attribute: .centerX,
+//                           multiplier: 1,
+//                           constant: 0).isActive = true
+//        NSLayoutConstraint(item: view1,
+//                           attribute: .centerY,
+//                           relatedBy: .equal,
+//                           toItem: view,
+//                           attribute: .centerY,
+//                           multiplier: 1,
+//                           constant: 0).isActive = true
+//        NSLayoutConstraint(item: view1,
+//                           attribute: .width,
+//                           relatedBy: .equal,
+//                           toItem: nil,
+//                           attribute: .notAnAttribute,
+//                           multiplier: 1,
+//                           constant: 140).isActive = true
+//        NSLayoutConstraint(item: view1,
+//                           attribute: .height,
+//                           relatedBy: .equal,
+//                           toItem: nil,
+//                           attribute: .notAnAttribute,
+//                           multiplier: 1,
+//                           constant: 140).isActive = true
+//    }
+//    func creatView2Constrant() {
+//        NSLayoutConstraint(item: view2,
+//                           attribute: .centerX,
+//                           relatedBy: .equal,
+//                           toItem: view,
+//                           attribute: .centerX,
+//                           multiplier: 1,
+//                           constant: 0).isActive = true
+//        NSLayoutConstraint(item: view2,
+//                           attribute: .bottom,
+//                           relatedBy: .equal,
+//                           toItem: view1,
+//                           attribute: .top,
+//                           multiplier: 1,
+//                           constant: -30).isActive = true
+//        NSLayoutConstraint(item: view2,
+//                           attribute: .width,
+//                           relatedBy: .equal,
+//                           toItem: nil,
+//                           attribute: .notAnAttribute,
+//                           multiplier: 1,
+//                           constant: 100).isActive = true
+//        NSLayoutConstraint(item: view2,
+//                           attribute: .height,
+//                           relatedBy: .equal,
+//                           toItem: nil,
+//                           attribute: .notAnAttribute,
+//                           multiplier: 1,
+//                           constant: 100).isActive = true
+//    }
 
 
 }
