@@ -25,12 +25,21 @@ class ViewController: UIViewController {
         return view
     }()
     
+    let view3: UIView = {
+       let view = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .yellow
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       view.addSubview(view1)
+        view.addSubview(view1)
         view.addSubview(view2)
+        view.addSubview(view3)
         creatViewRedConstraint()
         creatViewGreenConstraint()
+        creatViewYellowConstraint()
 //        creatView1Constrant()
 //         creatView2Constrant()
 //        let viewVFL = ["viewRed": view1, "viewGreen": view2]
@@ -63,6 +72,13 @@ class ViewController: UIViewController {
         view2.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/3).isActive = true
         view2.heightAnchor.constraint(equalToConstant: 100).isActive = true
         view2.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+    func creatViewYellowConstraint() {
+        view3.rightAnchor.constraint(equalTo: view2.rightAnchor).isActive = true
+        view3.leftAnchor.constraint(equalTo: view1.leftAnchor).isActive = true
+        view3.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        view3.bottomAnchor.constraint(equalTo: view2.topAnchor, constant: -20).isActive = true
     }
 //    func creatView1Constrant() {
 //        NSLayoutConstraint(item: view1,
